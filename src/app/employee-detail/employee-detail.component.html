@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <div class="box mb-5">
+
+
+    <!-- Heading -->
+    <div class="container">
+      <p class="display-3 m-3 title text-center" style="font-weight: bolder;">Employee Detail</p>
+      <hr>
+    </div>
+
+    <!-- Back Button -->
+    <div class="container">
+      <button type="button" class="btn btn-danger" [routerLink]="['']">Back</button>
+    </div>
+
+    <!-- Divider -->
+    <div class="container">
+      <hr>
+    </div>
+
+
+
+
+    <div class="container">
+      <p class="display-4">ID : <span class="display-4 font" style="font-weight: bolder;">{{EmployeeData?.id}}</span> </p>
+    </div>
+
+    <div class="container">
+      <p class="display-4">Name : <span class="display-4 font" style="font-weight: bolder;">{{EmployeeData?.employee_name}}</span> </p>
+    </div>
+
+    <div class="container">
+      <p class="display-4">Age : <span class="display-4 font" style="font-weight: bolder;">{{EmployeeData?.employee_age}}</span> </p>
+    </div>
+
+    <div class="container">
+      <p class="display-4">Salary : <span class="display-4 font" style="font-weight: bolder;">{{EmployeeData?.employee_salary}}</span> </p>
+    </div>
+
+    <div class="container">
+      <p class="display-4">Created At : <span class="display-4 font" style="font-weight: bolder;">{{EmployeeData?.createdAt | date:"dd/MM/yyyy"}}</span> </p>
+    </div>
+
+    <div class="container mb-4">
+      <p class="display-4">Updated At : <span class="display-4 font" style="font-weight: bolder;">{{EmployeeData?.updatedAt | date:"dd/MM/yyyy"}}</span> </p>
+    </div>
+
+
+
+
+  </div>
+</div>
+

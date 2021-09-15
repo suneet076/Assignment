@@ -1,0 +1,87 @@
+<div class="wrapper">
+  <div class="box">
+
+
+    <!-- Heading -->
+    <div class="container">
+      <p class="display-3 m-3 title text-center" style="font-weight: bolder;">Employees Data</p>
+      <hr>
+    </div>
+
+
+
+    <!-- Search/Filter -->
+    <div class="container mb-5">
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Gunjan" #input>
+      </mat-form-field>
+
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+
+
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="employee_name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.employee_name}} </td>
+          </ng-container>
+
+          <!-- Age Column -->
+          <ng-container matColumnDef="employee_age">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Age </th>
+            <td mat-cell *matCellDef="let row"> {{row.employee_age}} </td>
+          </ng-container>
+
+          <!-- Salary Column -->
+          <ng-container matColumnDef="employee_salary">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary </th>
+            <td mat-cell *matCellDef="let row"> {{row.employee_salary}} </td>
+          </ng-container>
+
+
+          <!-- CreatedAt Column -->
+          <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CreatedAt </th>
+            <td mat-cell *matCellDef="let row"> {{row.createdAt | date:"dd/MM/yyyy"}} </td>
+          </ng-container>
+
+
+          <!-- UpdatedOn Column -->
+          <ng-container matColumnDef="updatedAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> UpdatedOn</th>
+            <td mat-cell *matCellDef="let row"> {{row.updatedAt |date:"dd/MM/yyyy"}} </td>
+          </ng-container>
+
+          <!-- Button for Second Component -->
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action</th>
+            <td mat-cell *matCellDef="let row"><button [routerLink]="[row.id]" type="button"
+                class="btn btn-primary">Detail</button></td>
+
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+    </div>
+
+  </div>
+</div>
